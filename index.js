@@ -80,13 +80,68 @@ Yours,
 HE ZHO
 `
 console.log(message);
-/**
- * Array Operations
- */
 
- // Add elements
+// Array Operations //
+
+ /**
+  * Array Add elements
+  */
  const numbers = [3, 4];
+ // Add to the end
  numbers.push(5,6)
+ // Add to the beginning
+ numbers.unshift(1, 2);
+ // Add to the middle
+ numbers.splice(2, 0, 'a', 'b');
  console.log(numbers);
 
- 
+
+ /**
+  * Array Find element
+  */
+ // Return the index of element
+ console.log(numbers.indexOf('a'));
+ // Return last index of element
+ console.log(numbers.lastIndexOf(1));
+ // Return if the array contains the element
+ console.log(numbers.includes(1));
+ // Set the starting point. The second parameter is the start position.
+ console.log(numbers.indexOf(1, 2));
+
+ // Find element for reference type
+ const courses = [
+     {id:1, name: 'a'},
+     {id:2, name: 'b'},
+ ];
+// Find the element
+ console.log(courses.find(course => {return course.name == 'a';}));
+ // Find the index
+ console.log(courses.findIndex(course => {return course.name == 'a';}));
+
+ /**
+  * Array Remove Element
+  */
+// Remove the last
+const last = numbers.pop();
+// Remove from the beginning
+const first = numbers.shift();
+// Remove from the middle
+const middle = numbers.splice(2, 1);
+
+/**
+ * Combine Array
+ */
+const firstArray = [1, 2, 3];
+const secondArray = [4, 5, 6];
+// Use concat
+const combined = firstArray.concat(secondArray);
+// Use spread
+const spreadCombined = [...first, ...second];
+console.log(combined);
+console.log(secondArray);
+
+/**
+ * Divide the Array
+ */
+const slice = combined.slice(2, 4);
+
