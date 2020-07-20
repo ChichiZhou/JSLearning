@@ -1,0 +1,14 @@
+1.声明变量时，最好使用 let，而不使用 var
+2.可以直接使用 {} 来定义一个 object
+3.向一个 Array 添加元素可以直接写成 nameArray[2] = 'HZ'; Array 中可以有不同类型的元素
+4.Factory Function 的作用是用来创建 object。而 Constructor Function 的作用也是创建 object。
+  可以随便使用任意一种方式。
+5.动态语言的特点就是，实现定义好的变量类型或者是Class可以任意改变。也就是说一个变量一开始赋值是 string，
+  但是你也可以付给它 number。因为不需要声明变量的类型。一个Class一开始有三个field，但是你可以随时增加
+6.JS中所有的 Object 都含有一个 constructor。显示出 constructor 的方法是 object.constructor
+7.在JS中，function也是object
+8.使用 Object.entries()来遍历object中的所有properties
+9.使用 `` 包裹住字符串。``里面的字符串可以保持格式和特殊符号。并且可以用 ${}
+
+10.使用 const 对于primitive type 和 reference type 有不同的功效。
+
