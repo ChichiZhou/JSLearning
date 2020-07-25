@@ -136,7 +136,7 @@ const secondArray = [4, 5, 6];
 // Use concat
 const combined = firstArray.concat(secondArray);
 // Use spread
-const spreadCombined = [...first, ...second];
+const spreadCombined = [...firstArray, ...secondArray];
 console.log(combined);
 console.log(secondArray);
 
