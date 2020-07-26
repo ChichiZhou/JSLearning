@@ -139,9 +139,185 @@ const combined = firstArray.concat(secondArray);
 const spreadCombined = [...firstArray, ...secondArray];
 console.log(combined);
 console.log(secondArray);
-
+// Use forEach. forEach can have two index
+combined.forEach((number, index) => console.log(number, index));
 /**
  * Divide the Array
  */
 const slice = combined.slice(2, 4);
 
+/**
+ * Join Array
+ */
+const joined = numbers.join(',');
+
+/**
+ * Split Array
+ */
+const messageForJoin = 'This is my first message';
+const parts = messageForJoin.split(' ');
+console.log(parts);
+
+/**
+ * Sort Array
+ */
+numbers.sort();
+console.log(numbers);
+
+/**
+ * Reverse Array
+ */
+numbers.reverse();
+console.log(numbers);
+
+const coursesSort = [
+    {id: 1, name: 'Node.js'},
+    {id: 2, name: 'JAVAScript'},
+]
+
+coursesSort.sort(function(a, b) {
+    // a < b ==> -1
+    // a > b ==> 1
+    // a === b ==> 0
+    const nameA = a.name.toUpperCase();
+    const nameB = b.name.toUpperCase();
+    if (nameA < nameB) return -1;
+    if (nameA > nameB) return 1;
+    return 0;
+});
+
+/**
+ * Test every element
+ */
+const numbersTest = [1, -1, 2, 3];
+const allPositive = numbersTest.every(function(value){
+    return value >= 0;
+});
+
+const onePositive = numbersTest.some(function(value){
+    return value >= 0;
+});
+
+/**
+ * Filter Array (This will create a new array)
+ */
+
+ const filtered = numbersTest.filter(function(value){
+     return value >=0;
+ });
+ console.log(filtered);
+
+ /**
+  * Map the Array
+  */
+
+  const item = filtered.map(n => {return {value: n};});
+  console.log(item);
+
+/**
+ * Reduce Array
+ */
+
+ const numbersReduce = [1, -1, 2, 3];
+ const sumReduce = numbersReduce.reduce((accumulator, currentValue) => accumulator + currentValue);
+ console.log(sumReduce);
+
+ // Function //
+ // Function Declaration
+ // 按照 JAVA 一样声明函数。这样做的好处是，可以在声明这个函数主体之前调用，即
+ // 原因是 JAVAScript 会把所有的 Function Declariation 移动到最前面 （这个过程叫做 hoisting）
+ walk();
+function walk(){
+    console.log('walk');
+}
+// Function Expression
+// 按照 JAVAScript 声明函数。这样就不能再声明函数主体之前调用了
+const run = function(){
+    console.log('run');
+}
+run();
+
+
+// Arguments
+// Arguments 是 function 自带的一个 object，其作用是代表传入的参数。所以在 function 的声明中
+// 可以不设置传入参数，直接用 argument
+// 这样可以不必限定传入参数的个数
+function sum(){
+    let total = 0;
+    for (let value of arguments){
+        total += total;
+    }
+    return total;
+}
+
+console.log(sum(1,2,3,4,5));
+
+
+// Rest Operator
+// 这里需要注意，rest operator 必须是放在最后一位的
+function sumOperator(...aargs){
+    return arguments.reduce((a, b) => a + b);
+}
+
+// Getter and Setter
+const person = {
+    firstName: 'HE',
+    lastName: 'ZHOU',
+    get fullName(){
+        return `${person.firstName} ${person.lastName}`;
+    },
+    set fullName(value){
+        if (value !== 'string'){
+            throw new Error('Value is not a string');
+        }
+
+        const parts = value.split(' ');
+        if (parts.length != 2){
+            throw new Error('Enter a first and last name');
+        }
+        
+        this.firstName = parts[0];
+        this.lastName = parts[1];
+    },
+    printName(){
+        console.log(`${person.firstName} ${person.lastName}`);
+    }
+}
+
+try{
+    person.fullName = '';
+}
+catch (e){
+    alert(e);
+}
+
+const colorglobale = 'red';
+function changeColor(){
+    // 虽然这里创建了一个 c
+    const colorglobale = 'blue';
+    console.log('In the block, the color is ' + colorglobale);
+}
+
+changeColor();
+console.log('In the global, the color is ' + colorglobale);
+
+
+// let 和 var 的区别
+// var 的 scope 不在于 block，而在于 function
+// var => function-scoped variable
+// let, const => block-scoped variable
+
+// this
+// method -> object
+// function -> global
+const video = {
+    title: 'a',
+    tags: ['a', 'b', 'c'],
+    showTags(){
+        this.tags.forEach(function(tag){
+            console.log(this.title, tag);
+        }, this);
+    }
+};
+
+video.showTags();
